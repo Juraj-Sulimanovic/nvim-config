@@ -1,0 +1,13 @@
+require("juraj.plugins")
+require("juraj.core.options")
+require("juraj.core.keymaps")
+require("juraj.core.colorscheme")
+require("juraj.core.telescope")
+require("juraj.plugins.lsp")
+require("juraj.plugins.lualine")
+require("juraj.plugins.nvim-tree")
+require("juraj.plugins.nvim-cmp")
+require("juraj.plugins.harpoon")
+require("juraj.plugins.treesitter")
+require("ibl").setup()
+
