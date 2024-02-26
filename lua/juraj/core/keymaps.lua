@@ -6,7 +6,7 @@ local cmd = vim.cmd
 -- general
 keymap.set("i", "jk", "<ESC>")
 keymap.set("n", "<leader>nh", ":nohl<CR>")
-keymap.set("n", "<leader>vw", ":set wrap!<CR>")
+keymap.set("n", "<leader>ww", ":set wrap!<CR>")
 keymap.set("n", "x", "_x")
 
 -- nvim- tree

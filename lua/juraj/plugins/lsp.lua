@@ -17,7 +17,16 @@ end)
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = {'tsserver', 'rust_analyzer'},
+  ensure_installed = {
+    'html',          -- html
+    'cssls',         -- css
+    'quick_lint_js', -- js
+    'tsserver',      -- typescript
+    'solargraph',    -- rails
+    'yamlls',        -- yaml
+    'jsonls',        -- json
+    'lua_ls',        -- lua_ls
+  },
   handlers = {
     lsp_zero.default_setup,
     lua_ls = function()

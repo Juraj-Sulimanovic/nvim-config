@@ -42,8 +42,21 @@ packer.init({
 return packer.startup(function(use)
 	--packer
   use ("wbthomason/packer.nvim") 
-  
-  -- no idea
+
+  use({
+    'projekt0n/github-nvim-theme',
+    config = function()
+      require('github-theme').setup({
+        options = {
+          comments = 'italic',
+        }
+      })
+
+      vim.cmd('colorscheme github_dark_dimmed')
+    end
+  })
+
+  -- tmux
   use("christoomey/vim-tmux-navigator")
   
   -- telescope
@@ -72,16 +85,6 @@ return packer.startup(function(use)
     "kyazdani42/nvim-tree.lua",
     requires = "kyazdani42/nvim-web-devicons" ,
     wants = "nvim-web-devicons",
-    config = function()
-      require("nvim-web-devicons").setup()
-
-      require("nvim-tree").setup {
-        hijack_cursor = true,
-        view = {
-          width = 40
-        }
-      }
-    end
   }
   use("nvim-tree/nvim-web-devicons")
 
@@ -98,14 +101,10 @@ return packer.startup(function(use)
   })
 
   -- indentation highlight
-  use "lukas-reineke/indent-blankline.nvim"
+  -- require("ibl").setup()
 
   -- code syntax
   use "sheerun/vim-polyglot"
-
-  -- themes
-  -- use ({ 'projekt0n/github-nvim-theme' })
-  use { "ellisonleao/gruvbox.nvim" }
 
   -- LSP
   use {
@@ -125,6 +124,23 @@ return packer.startup(function(use)
       {'hrsh7th/cmp-nvim-lsp'},
       {'L3MON4D3/LuaSnip'},
     }
+  }
+
+  -- copilot
+  use {
+    "zbirenbaum/copilot-cmp",
+    after = { "copilot.lua" },
+    config = function ()
+      require("copilot_cmp").setup()
+    end
+  }
+  use {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({})
+    end,
   }
 
   -- snippets
@@ -149,6 +165,9 @@ return packer.startup(function(use)
 
   -- git
   use("tpope/vim-fugitive")
+  use {'akinsho/git-conflict.nvim', tag = "*", config = function()
+    require('git-conflict').setup()
+  end}
 
   if PACKER_BOOTSTRAP then
 		require("packer").sync()

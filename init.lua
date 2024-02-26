@@ -8,5 +8,3 @@ require("juraj.plugins.nvim-tree")
 require("juraj.plugins.nvim-cmp")
 require("juraj.plugins.harpoon")
 require("juraj.plugins.treesitter")
--- require("ibl").setup()
-
