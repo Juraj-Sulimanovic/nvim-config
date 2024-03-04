@@ -40,25 +40,21 @@ packer.init({
 
 -- Install your plugins here
 return packer.startup(function(use)
-	--packer
-  use ("wbthomason/packer.nvim") 
+	-- packer
+  use ("wbthomason/packer.nvim")
 
+  -- theme
   use({
     'projekt0n/github-nvim-theme',
     config = function()
-      require('github-theme').setup({
-        options = {
-          comments = 'italic',
-        }
-      })
+      require('github-theme').setup()
 
       vim.cmd('colorscheme github_dark_dimmed')
     end
   })
-
   -- tmux
   use("christoomey/vim-tmux-navigator")
-  
+
   -- telescope
   use("nvim-lua/plenary.nvim")
   use {
@@ -72,7 +68,7 @@ return packer.startup(function(use)
         fuzzy = true,
         override_generic_sorter = true,
         override_file_sorter = true,
-        case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+        case_mode = "smart_case", -- or "ignore_case" or "respect_case"
       }
     }
   }
@@ -99,9 +95,6 @@ return packer.startup(function(use)
       ts_update()
     end,
   })
-
-  -- indentation highlight
-  -- require("ibl").setup()
 
   -- code syntax
   use "sheerun/vim-polyglot"
@@ -148,7 +141,7 @@ return packer.startup(function(use)
   use("saadparwaiz1/cmp_luasnip")
   use("rafamadriz/friendly-snippets")
 
-  -- neovim starting page
+  -- starting page
   use {
       'goolord/alpha-nvim',
       requires = { 'nvim-tree/nvim-web-devicons' },
@@ -157,7 +150,7 @@ return packer.startup(function(use)
       end
   }
 
-  -- neovim status line
+  -- status line
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'nvim-tree/nvim-web-devicons', opt = true }
@@ -169,6 +162,26 @@ return packer.startup(function(use)
     require('git-conflict').setup()
   end}
 
+  -- tests
+  use({
+    "nvim-neotest/neotest",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "olimorris/neotest-rspec",
+      "nvim-neotest/nvim-nio"
+    },
+    config = function()
+      require("neotest").setup({
+        adapters = {
+          require("neotest-rspec"),
+        }
+      })
+    end
+  })
+
+  -- end
   if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end

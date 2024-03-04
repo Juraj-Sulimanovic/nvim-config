@@ -26,6 +26,7 @@ require('mason-lspconfig').setup({
     'yamlls',        -- yaml
     'jsonls',        -- json
     'lua_ls',        -- lua_ls
+    'gopls',         -- go
   },
   handlers = {
     lsp_zero.default_setup,

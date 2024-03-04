@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/Users/jurajsulimanovic/.cache/nvim/packer_hererocks/2.1.1696795921/share/lua/5.1/?.lua;/Users/jurajsulimanovic/.cache/nvim/packer_hererocks/2.1.1696795921/share/lua/5.1/?/init.lua;/Users/jurajsulimanovic/.cache/nvim/packer_hererocks/2.1.1696795921/lib/luarocks/rocks-5.1/?.lua;/Users/jurajsulimanovic/.cache/nvim/packer_hererocks/2.1.1696795921/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/Users/jurajsulimanovic/.cache/nvim/packer_hererocks/2.1.1696795921/lib/lua/5.1/?.so"
+local package_path_str = "/Users/jurajsulimanovic/.cache/nvim/packer_hererocks/2.1.1710088188/share/lua/5.1/?.lua;/Users/jurajsulimanovic/.cache/nvim/packer_hererocks/2.1.1710088188/share/lua/5.1/?/init.lua;/Users/jurajsulimanovic/.cache/nvim/packer_hererocks/2.1.1710088188/lib/luarocks/rocks-5.1/?.lua;/Users/jurajsulimanovic/.cache/nvim/packer_hererocks/2.1.1710088188/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/Users/jurajsulimanovic/.cache/nvim/packer_hererocks/2.1.1710088188/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -74,6 +74,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["FixCursorHold.nvim"] = {
+    loaded = true,
+    path = "/Users/jurajsulimanovic/.local/share/nvim/site/pack/packer/start/FixCursorHold.nvim",
+    url = "https://github.com/antoinemadec/FixCursorHold.nvim"
+  },
   LuaSnip = {
     loaded = true,
     path = "/Users/jurajsulimanovic/.local/share/nvim/site/pack/packer/start/LuaSnip",
@@ -142,7 +147,7 @@ _G.packer_plugins = {
     url = "https://github.com/akinsho/git-conflict.nvim"
   },
   ["github-nvim-theme"] = {
-    config = { "\27LJ\2\n›\1\0\0\4\0\t\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\0016\0\6\0009\0\a\0'\2\b\0B\0\2\1K\0\1\0#colorscheme github_dark_dimmed\bcmd\bvim\foptions\1\0\0\1\0\1\rcomments\vitalic\nsetup\17github-theme\frequire\0" },
+    config = { "\27LJ\2\nq\0\0\3\0\6\0\n6\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0016\0\3\0009\0\4\0'\2\5\0B\0\2\1K\0\1\0#colorscheme github_dark_dimmed\bcmd\bvim\nsetup\17github-theme\frequire\0" },
     loaded = true,
     path = "/Users/jurajsulimanovic/.local/share/nvim/site/pack/packer/start/github-nvim-theme",
     url = "https://github.com/projekt0n/github-nvim-theme"
@@ -172,6 +177,17 @@ _G.packer_plugins = {
     path = "/Users/jurajsulimanovic/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  neotest = {
+    config = { "\27LJ\2\n{\0\0\a\0\6\1\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0004\3\3\0006\4\0\0'\6\3\0B\4\2\0?\4\0\0=\3\5\2B\0\2\1K\0\1\0\radapters\1\0\1\radapters\0\18neotest-rspec\nsetup\fneotest\frequire\3€€À™\4\0" },
+    loaded = true,
+    path = "/Users/jurajsulimanovic/.local/share/nvim/site/pack/packer/start/neotest",
+    url = "https://github.com/nvim-neotest/neotest"
+  },
+  ["neotest-rspec"] = {
+    loaded = true,
+    path = "/Users/jurajsulimanovic/.local/share/nvim/site/pack/packer/start/neotest-rspec",
+    url = "https://github.com/olimorris/neotest-rspec"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/Users/jurajsulimanovic/.local/share/nvim/site/pack/packer/start/nvim-cmp",
@@ -181,6 +197,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/jurajsulimanovic/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
+  },
+  ["nvim-nio"] = {
+    loaded = true,
+    path = "/Users/jurajsulimanovic/.local/share/nvim/site/pack/packer/start/nvim-nio",
+    url = "https://github.com/nvim-neotest/nvim-nio"
   },
   ["nvim-tree.lua"] = {
     loaded = true,
@@ -241,6 +262,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: neotest
+time([[Config for neotest]], true)
+try_loadstring("\27LJ\2\n{\0\0\a\0\6\1\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0004\3\3\0006\4\0\0'\6\3\0B\4\2\0?\4\0\0=\3\5\2B\0\2\1K\0\1\0\radapters\1\0\1\radapters\0\18neotest-rspec\nsetup\fneotest\frequire\3€€À™\4\0", "config", "neotest")
+time([[Config for neotest]], false)
 -- Config for: git-conflict.nvim
 time([[Config for git-conflict.nvim]], true)
 try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\17git-conflict\frequire\0", "config", "git-conflict.nvim")
@@ -251,7 +276,7 @@ try_loadstring("\27LJ\2\n`\0\0\5\0\5\0\n6\0\0\0'\2\1\0B\0\2\0029\0\2\0006\2\0\0'
 time([[Config for alpha-nvim]], false)
 -- Config for: github-nvim-theme
 time([[Config for github-nvim-theme]], true)
-try_loadstring("\27LJ\2\n›\1\0\0\4\0\t\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\0016\0\6\0009\0\a\0'\2\b\0B\0\2\1K\0\1\0#colorscheme github_dark_dimmed\bcmd\bvim\foptions\1\0\0\1\0\1\rcomments\vitalic\nsetup\17github-theme\frequire\0", "config", "github-nvim-theme")
+try_loadstring("\27LJ\2\nq\0\0\3\0\6\0\n6\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0016\0\3\0009\0\4\0'\2\5\0B\0\2\1K\0\1\0#colorscheme github_dark_dimmed\bcmd\bvim\nsetup\17github-theme\frequire\0", "config", "github-nvim-theme")
 time([[Config for github-nvim-theme]], false)
 
 -- Command lazy-loads
