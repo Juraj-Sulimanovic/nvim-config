@@ -15,13 +15,25 @@ lsp_zero.on_attach(function(client, bufnr)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
-require('mason').setup({})
+require('mason').setup({
+  opts = {
+    ensure_installed = {
+      'prettier',      -- prettier
+    },
+    formatters_by_ft = {
+      ["typescript"] = { "prettier" },
+      ["typescriptreact"] = { "prettier" },
+    },
+  }
+})
 require('mason-lspconfig').setup({
   ensure_installed = {
     'html',          -- html
     'cssls',         -- css
     'quick_lint_js', -- js
     'tsserver',      -- typescript
+    'eslint',        -- eslint
+    'tailwindcss',   -- tailwind
     'solargraph',    -- rails
     'yamlls',        -- yaml
     'jsonls',        -- json
