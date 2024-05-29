@@ -19,7 +19,11 @@ require('mason').setup({
   opts = {
     ensure_installed = {
       'prettier',      -- prettier
-    }
+    },
+    formatters_by_ft = {
+      ["typescript"] = { "prettier" },
+      ["typescriptreact"] = { "prettier" },
+    },
   }
 })
 require('mason-lspconfig').setup({
