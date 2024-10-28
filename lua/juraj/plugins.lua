@@ -71,16 +71,6 @@ return packer.startup(function(use)
     requires = { {'nvim-lua/plenary.nvim'} }
   }
   use ('nvim-telescope/telescope-fzf-native.nvim')
-  require('telescope').setup {
-    extensions = {
-      fzf = {
-        fuzzy = true,
-        override_generic_sorter = true,
-        override_file_sorter = true,
-        case_mode = "smart_case", -- or "ignore_case" or "respect_case"
-      }
-    }
-  }
 
   -- harpoon
   use("theprimeagen/harpoon")
@@ -90,6 +80,7 @@ return packer.startup(function(use)
     "kyazdani42/nvim-tree.lua",
     requires = "kyazdani42/nvim-web-devicons" ,
     wants = "nvim-web-devicons",
+    commit = "cb57691",
   }
   use("nvim-tree/nvim-web-devicons")
 
@@ -127,25 +118,6 @@ return packer.startup(function(use)
       {'L3MON4D3/LuaSnip'},
     }
   }
-
-  -- copilot
-  --[[ 
-    use {
-      "zbirenbaum/copilot-cmp",
-      after = { "copilot.lua" },
-      config = function ()
-        require("copilot_cmp").setup()
-      end
-    }
-    use {
-      "zbirenbaum/copilot.lua",
-      cmd = "Copilot",
-      event = "InsertEnter",
-      config = function()
-        require("copilot").setup({})
-      end,
-    }
-  ]]
 
   -- snippets
   use("L3MON4D3/LuaSnip")
