@@ -7,10 +7,11 @@ opt.showmode = false
 opt.relativenumber = true
 opt.number         = true
 
--- tabse and indentations
-opt.tabstop    = 4
-opt.shiftwidth = 4
-opt.expandtab  = true
+-- tabs and indentations
+opt.expandtab = false   -- Use tab characters instead of spaces
+opt.tabstop = 4        -- Number of spaces that a <Tab> in the file counts for
+opt.shiftwidth = 4     -- Number of spaces to use for each step of (auto)indent
+opt.softtabstop = 4    -- Number of spaces that a <Tab> counts for while editing
 opt.autoindent = true
 
 -- line wapping

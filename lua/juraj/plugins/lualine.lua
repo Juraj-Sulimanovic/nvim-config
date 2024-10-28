@@ -1,4 +1,12 @@
+local theme = require('lualine.themes.dracula')
+
+-- transparrant lualine
+theme.normal.c.bg = 'nil'
+
 require('lualine').setup({
+    options = {
+        theme = theme,
+    },
     sections = {
         lualine_a = { 'mode' },
         lualine_b = { 'branch' },

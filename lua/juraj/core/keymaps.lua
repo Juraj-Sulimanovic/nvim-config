@@ -22,4 +22,7 @@ keymap.set('n', '<leader>fg', builtin.live_grep, {})
 keymap.set('n', '<leader>fb', builtin.buffers, {})
 keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
+-- code formatting
+keymap.set('n', '<leader>bb', ':!black %<CR>')
+
 keymap.set('n', '<leader>gs', cmd.Git)
