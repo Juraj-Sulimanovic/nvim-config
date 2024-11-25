@@ -31,8 +31,8 @@ require('mason-lspconfig').setup({
   ensure_installed = {
     'html',          -- html
     'cssls',         -- css
+    'ts_ls',         -- typescript
     'quick_lint_js', -- js
-    'tsserver',      -- typescript
     'eslint',        -- eslint
     'tailwindcss',   -- tailwind
     'solargraph',    -- rails
@@ -49,6 +49,22 @@ require('mason-lspconfig').setup({
       require('lspconfig').lua_ls.setup(lua_opts)
     end,
   }
+})
+require("mason-lspconfig").setup_handlers({
+  -- Will be called for each installed server that doesn't have
+  -- a dedicated handler.
+  --
+  function(server_name) -- default handler (optional)
+      -- https://github.com/neovim/nvim-lspconfig/pull/3232
+      if server_name == "tsserver" then
+          server_name = "ts_ls"
+      end
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      require("lspconfig")[server_name].setup({
+
+          capabilities = capabilities,
+      })
+  end,
 })
 
 local cmp = require('cmp')
