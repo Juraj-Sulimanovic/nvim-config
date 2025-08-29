@@ -1,10 +1,10 @@
-require("juraj.plugins")
-require("juraj.core.options")
-require("juraj.core.keymaps")
-require("juraj.core.telescope")
-require("juraj.plugins.lsp")
-require("juraj.plugins.lualine")
-require("juraj.plugins.nvim-tree")
-require("juraj.plugins.nvim-cmp")
-require("juraj.plugins.harpoon")
-require("juraj.plugins.treesitter")
+-- Set leader keys before anything else
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
+-- Bootstrap lazy.nvim
+require("config.lazy")
+
+-- Load configuration
+require("config.options")
+require("config.keymaps")
