@@ -1,0 +1,15 @@
+{
+  "include": [
+    "**/*.py"
+  ],
+  "exclude": [
+    "**/migrations",
+    "**/venv",
+    "**/.venv",
+    "**/node_modules",
+    "**/__pycache__",
+    "**/.pytest_cache",
+    "**/build",
+    "**/dist"
+  ]
+}
